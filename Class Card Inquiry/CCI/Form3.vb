@@ -3,7 +3,7 @@ Imports System.Data
 Imports System.Data.Odbc
 Imports System.Data.DataTable
 Public Class Form3
-    Dim connString As String = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=D:\Database11.accdb"
+    Dim connString As String = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../../db/Database.accdb"
     Dim MyConn As OleDbConnection = New OleDbConnection
     Dim da As OleDbDataAdapter
     Dim ds As DataSet = New DataSet

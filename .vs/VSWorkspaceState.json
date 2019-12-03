@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Class Card Inquiry",
-    "\\Class Card Inquiry\\db",
-    "\\Class Card Inquiry\\WindowsApplication1"
+    "\\Class Card Inquiry\\CCI",
+    "\\Class Card Inquiry\\db"
   ],
-  "SelectedNode": "\\Class Card Inquiry\\WindowsApplication1.sln",
+  "SelectedNode": "\\Class Card Inquiry\\CCI\\WindowsApplication1.vbproj",
   "PreviewInSolutionExplorer": false
 }
