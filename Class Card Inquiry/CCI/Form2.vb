@@ -7,8 +7,8 @@ Public Class Form2
     Dim connString As String
     Dim myConnection As OleDbConnection = New OleDbConnection
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source="
-        dataFile = "../../../db/Database.accdb"
+        provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=db/Database.accdb"
+        dataFile = "db/Database.accdb"
         Dim recordcount As Int32 = 0
         conString = provider & dataFile
         myConnection.ConnectionString = conString
@@ -25,7 +25,7 @@ Public Class Form2
 
         While dr.Read
             Name = dr("Names").ToString
-            Course = dr("Year/Course").ToString
+            Course = dr("YearandCourse").ToString
 
         End While
         myConnection.Close()
@@ -49,7 +49,7 @@ Public Class Form2
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source="
-        dataFile = "D:\Database11.accdb"
+        dataFile = "db\Database.accdb"
         conString = provider & dataFile
         myConnection.ConnectionString = conString
         myConnection.Open()
