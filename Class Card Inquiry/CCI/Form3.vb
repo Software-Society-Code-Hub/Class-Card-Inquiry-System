@@ -3,7 +3,7 @@ Imports System.Data
 Imports System.Data.Odbc
 Imports System.Data.DataTable
 Public Class Form3
-    Dim connString As String = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../../db/Database.accdb"
+    Dim connString As String = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../db/Database.accdb"
     Dim MyConn As OleDbConnection = New OleDbConnection
     Dim da As OleDbDataAdapter
     Dim ds As DataSet = New DataSet
@@ -80,5 +80,9 @@ Public Class Form3
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         Me.Hide()
         Form2.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        source1.RemoveFilter()
     End Sub
 End Class

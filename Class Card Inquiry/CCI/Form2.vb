@@ -4,17 +4,15 @@ Public Class Form2
     Dim provider As String
     Dim dataFile As String
     Dim conString As String
-    Dim connString As String
     Dim myConnection As OleDbConnection = New OleDbConnection
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=db/Database.accdb"
-        dataFile = "db/Database.accdb"
-        Dim recordcount As Int32 = 0
+        provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source="
+        dataFile = "../../db/Database.accdb"
         conString = provider & dataFile
         myConnection.ConnectionString = conString
         myConnection.Open()
 
-        Dim cmd As OleDbCommand = New OleDbCommand("Select * FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "'", myConnection)
+        Dim cmd As OleDbCommand = New OleDbCommand("Select * FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "' AND [Subject] = '" & TextBox2.Text & "'", myConnection)
 
 
         Dim dr As OleDbDataReader = cmd.ExecuteReader
@@ -22,39 +20,34 @@ Public Class Form2
 
         Dim Name As String = ""
         Dim Course As String = ""
+        Dim SpecialKey As String = ""
 
         While dr.Read
             Name = dr("Names").ToString
             Course = dr("YearandCourse").ToString
+            SpecialKey = dr("SpecialKey").ToString
 
         End While
         myConnection.Close()
         myConnection.Open()
 
-        Dim count As OleDbCommand = New OleDbCommand("SELECT Count (BarCode)  FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "' and [ClassCard] = 1 ", myConnection)
-
-
-
-
-
-        recordcount = Convert.ToInt32(count.ExecuteScalar())
-
-
         myConnection.Close()
         Label1.Text = Name
         Label2.Text = Course
-        Label3.Text = recordcount
+        Label3.Text = SpecialKey
 
     End Sub
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source="
-        dataFile = "db\Database.accdb"
+        dataFile = "../../db/Database.accdb"
         conString = provider & dataFile
         myConnection.ConnectionString = conString
         myConnection.Open()
+        Dim cardReleased As String
+        cardReleased = "Released"
 
-        Dim cmd As OleDbCommand = New OleDbCommand("UPDATE StudentList SET[ClassCard] = 0  WHERE [BarCode] = '" & TextBox1.Text & "'", myConnection)
+        Dim cmd As OleDbCommand = New OleDbCommand("UPDATE StudentList SET[ClassCard] = '" & cardReleased & "' WHERE [Subject] = '" & TextBox2.Text & "'", myConnection)
         Dim dm As OleDbDataReader = cmd.ExecuteReader
 
 
