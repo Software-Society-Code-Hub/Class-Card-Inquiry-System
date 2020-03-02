@@ -76,12 +76,6 @@ Public Class Form3
         source1.Filter = "[Subject] = '" & TextBox1.Text & "'"
         DataGridView1.Refresh()
     End Sub
-
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-        Me.Hide()
-        Form2.Show()
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         source1.RemoveFilter()
     End Sub

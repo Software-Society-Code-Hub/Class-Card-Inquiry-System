@@ -61,7 +61,6 @@ Public Class Form2
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-        Me.Hide()
         Form3.Show()
     End Sub
 End Class
