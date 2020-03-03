@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Data.OleDb
 Public Class Form2
+    Dim cardAvailable As String = "Available"
     Dim provider As String
     Dim dataFile As String
     Dim conString As String
@@ -8,15 +9,13 @@ Public Class Form2
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         provider = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source="
         dataFile = "../../db/Database.accdb"
+        Dim recordcount As Int32 = 0
         conString = provider & dataFile
         myConnection.ConnectionString = conString
         myConnection.Open()
 
-        Dim cmd As OleDbCommand = New OleDbCommand("Select * FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "' AND [Subject] = '" & TextBox2.Text & "'", myConnection)
-
-
+        Dim cmd As OleDbCommand = New OleDbCommand("Select * FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "'", myConnection)
         Dim dr As OleDbDataReader = cmd.ExecuteReader
-
 
         Dim Name As String = ""
         Dim Course As String = ""
@@ -31,10 +30,14 @@ Public Class Form2
         myConnection.Close()
         myConnection.Open()
 
+        Dim count As OleDbCommand = New OleDbCommand("SELECT Count (BarCode)  FROM [StudentList] WHERE [BarCode] = '" & TextBox1.Text & "' AND [ClassCard] = '" & cardAvailable & "' ", myConnection)
+        recordcount = Convert.ToInt32(count.ExecuteScalar())
+
         myConnection.Close()
         Label1.Text = Name
         Label2.Text = Course
         Label3.Text = SpecialKey
+        Label5.Text = recordcount
 
     End Sub
 
@@ -47,7 +50,7 @@ Public Class Form2
         Dim cardReleased As String
         cardReleased = "Released"
 
-        Dim cmd As OleDbCommand = New OleDbCommand("UPDATE StudentList SET[ClassCard] = '" & cardReleased & "' WHERE [Subject] = '" & TextBox2.Text & "'", myConnection)
+        Dim cmd As OleDbCommand = New OleDbCommand("UPDATE StudentList SET[ClassCard] = '" & cardReleased & "' WHERE [ClassCard] = '" & cardAvailable & "' ", myConnection)
         Dim dm As OleDbDataReader = cmd.ExecuteReader
 
 
@@ -57,6 +60,7 @@ Public Class Form2
         Label1.Text = ""
         Label2.Text = ""
         Label3.Text = ""
+        Label5.Text = ""
         MsgBox("Credentials Claim")
     End Sub
 
