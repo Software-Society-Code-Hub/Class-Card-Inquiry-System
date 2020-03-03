@@ -31,6 +31,7 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -121,12 +122,22 @@ Partial Class Form2
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(42, 351)
+        Me.Label5.Location = New System.Drawing.Point(42, 350)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(305, 25)
+        Me.Label5.Size = New System.Drawing.Size(339, 25)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Remaining # of Class Cards"
+        Me.Label5.Text = "No. of AVAILABLE Class Cards"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(314, 12)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(162, 51)
+        Me.Button4.TabIndex = 10
+        Me.Button4.Text = "UPDATE DB"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Form2
         '
@@ -135,6 +146,7 @@ Partial Class Form2
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(488, 574)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button3)
@@ -160,4 +172,5 @@ Partial Class Form2
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button4 As Button
 End Class
