@@ -10,7 +10,7 @@ pass: lcc
 * Latest .NET framework version for maximum compatibility, you can download it [here](https://dotnet.microsoft.com/en-us/download/dotnet-framework)
 
 # Get Started
-Simply use credentials above to login and start creating, deleting and editing your products. No internet connection required. 
+Simply use credentials above to login and start creating, deleting and editing the records. No internet connection required. 
 
 # Legacy support
 A relic of the past. This program uses an old version of access database driver and may not work or have trouble with the latest access database driver versions. You may fork it and update it to your behest. You may also contribute by improving the program. 
